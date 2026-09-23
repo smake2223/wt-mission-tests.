@@ -1,0 +1,8539 @@
+selected_tag:t=""
+bin_dump_file:t=""
+
+mission_settings{
+  player{
+    army:i=1
+    wing:t="t1_player01"
+    wing:t="t1_player02"
+    wing:t="t1_player03"
+    wing:t="t1_player04"
+    wing:t="t1_player05"
+    wing:t="t1_player06"
+    wing:t="t1_player07"
+    wing:t="t1_player08"
+    wing:t="t1_player09"
+    wing:t="t1_player10"
+    wing:t="t1_player11"
+    wing:t="t1_player12"
+    wing:t="t1_player13"
+    wing:t="t1_player14"
+    wing:t="t1_player15"
+    wing:t="t1_player16"
+    wing:t="t1_player17"
+    wing:t="t1_player18"
+    wing:t="t1_player19"
+    wing:t="t1_player20"
+    wing:t="t1_player21"
+    wing:t="t1_player22"
+    wing:t="t1_player23"
+    wing:t="t1_player24"
+    wing:t="t1_player25"
+    wing:t="t1_player26"
+    wing:t="t1_player27"
+    wing:t="t1_player28"
+    wing:t="t1_player29"
+    wing:t="t1_player30"
+    wing:t="t1_player31"
+    wing:t="t1_player32"
+  }
+
+  player_teamB{
+    army:i=2
+    wing:t="t2_player01"
+    wing:t="t2_player02"
+    wing:t="t2_player03"
+    wing:t="t2_player04"
+    wing:t="t2_player05"
+    wing:t="t2_player06"
+    wing:t="t2_player07"
+    wing:t="t2_player08"
+    wing:t="t2_player09"
+    wing:t="t2_player10"
+    wing:t="t2_player11"
+    wing:t="t2_player12"
+    wing:t="t2_player13"
+    wing:t="t2_player14"
+    wing:t="t2_player15"
+    wing:t="t2_player16"
+    wing:t="t2_player17"
+    wing:t="t2_player18"
+    wing:t="t2_player19"
+    wing:t="t2_player20"
+    wing:t="t2_player21"
+    wing:t="t2_player22"
+    wing:t="t2_player23"
+    wing:t="t2_player24"
+    wing:t="t2_player25"
+    wing:t="t2_player26"
+    wing:t="t2_player27"
+    wing:t="t2_player28"
+    wing:t="t2_player29"
+    wing:t="t2_player30"
+    wing:t="t2_player31"
+    wing:t="t2_player32"
+  }
+
+  mission{
+    name:t="Tank_Triathlon"
+    level:t="levels/avg_lazzaro_italy_new_city.bin"
+    type:t="singleMission"
+    environment:t="Noon"
+    weather:t="clear"
+    missionDebriefing:t=""
+    missionBriefing:t=""
+    killLimit:i=10
+    chapter:t="test"
+    locName:t="[Tank Race] Italy#1 By Glawen"
+    locDesc:t="Enjoy!"
+    gt_race:b=yes
+    timeLimit:i=70
+    postfix:t="_race_straight"
+    allowEmptyTeams:b=yes
+    country_axis:t="germany"
+    country_allies:t="ussr"
+    raceForceCannotShoot:b=no
+    campaign:t="UserMissions"
+    restoreType:t="attempts"
+    difficulty:t=""
+    optionalTakeOff:b=no
+    windSpeed:p2=-5, -5
+    windDirectionDeg:p2=150, 0
+    allowWinch:b=yes
+    isPhysPredictionEnabled:b=no
+    isSelfSmoothingEnabled:b=no
+    isPreciseCollisionDetectionEnabled:b=yes
+
+    missionType{
+      _Dom:b=no
+      _Conq:b=no
+      _Bttl:b=no
+      _Bto:b=no
+      _v1_race_straight:b=no
+      _v1_race_inverted:b=no
+      _Flc:b=no
+      _v2_race_straight:b=no
+      _v2_race_inverted:b=no
+      _Conq1:b=no
+      _Conq2:b=no
+      _Conq3:b=no
+      _Conq4:b=no
+      _Conq5:b=no
+      _Conq6:b=no
+      _DBttl:b=no
+      _CnvA:b=no
+      _CnvB:b=no
+      _DBttlA:b=no
+      _DBttlB:b=no
+      _ArtDA:b=no
+      _ArtDB:b=no
+    }
+
+    tags{}
+  }
+
+  atmosphere{
+    pressure:r=760
+    temperature:r=30
+  }
+
+  spectator_points{}
+  cover_points{}
+  briefing{
+    place_loc:t="test"
+    date_loc:t=""
+    objective_loc:t="Get the first place"
+    music:t="action_01"
+    viewAreaScale:r=1
+
+    part{
+      event:t=""
+      minTime:i=0
+
+      slide{
+        difficulty:t="arcade"
+        map:b=yes
+        minTime:i=14
+        picture:t=""
+        showAirMap:b=no
+
+        icon{
+          icontype:t="tank"
+          side:t="player"
+          target:t="spawn01"
+        }
+
+        icon{
+          icontype:t="mark"
+          side:t="neutral"
+          target:t="race_wp_013"
+        }
+      }
+    }
+  }
+}
+
+imports{}
+triggers{
+  isCategory:b=yes
+  is_enabled:b=yes
+
+  init_mission{
+    is_enabled:b=yes
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=yes
+    }
+
+    events{
+      initMission{}
+    }
+
+    conditions{}
+    actions{
+      missionMarkAsRespawnPoint{
+        loc_name:t="Spawn (A)"
+        spawnEffect:b=no
+        isAirfield:b=no
+        isUnit:b=no
+        isStrictSpawn:b=yes
+        radius:r=-1
+        useExisting:b=no
+        isIndividual:b=no
+        removeAreas:b=no
+        canSpawnOnNeutral:b=no
+        showOnMap:b=yes
+        onlyOnePlayerPerSpawnPoint:b=no
+        resetStrictSpawnIndex:b=no
+        forceCreate:b=no
+        replaceAreas:b=no
+        ignoreTeamsOnReuse:b=no
+        target:t="tank_respawnA_teamA"
+        object_type:t="any"
+        team:t="A"
+
+        tags{
+          tank:b=yes
+        }
+      }
+
+      missionMarkAsRespawnPoint{
+        loc_name:t="Spawn (B)"
+        spawnEffect:b=no
+        isAirfield:b=no
+        isUnit:b=no
+        isStrictSpawn:b=yes
+        radius:r=-1
+        useExisting:b=no
+        isIndividual:b=no
+        removeAreas:b=no
+        canSpawnOnNeutral:b=no
+        showOnMap:b=yes
+        onlyOnePlayerPerSpawnPoint:b=no
+        resetStrictSpawnIndex:b=no
+        forceCreate:b=no
+        replaceAreas:b=no
+        ignoreTeamsOnReuse:b=no
+        target:t="tank_respawnA_teamB"
+        object_type:t="any"
+        team:t="B"
+
+        tags{
+          tank:b=yes
+        }
+      }
+
+      unitSetStealth{
+        set:b=yes
+        radius:r=-1
+        target:t="stealth_squad"
+      }
+
+      unitSetProperties{
+        object_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        object_var_value:i=0
+        object:t="immortal_squad"
+        isImmortal:b=yes
+      }
+
+      missionHint{
+        setStatus:t="show"
+        time:r=-1
+        hint:t="hints/ffa_race_starts_in_00"
+      }
+
+      moAddMissionObjective{
+        target:t="phiphi_race_mission_objective"
+        object_var_comp_op:t="equal"
+        object_var_name:t=""
+      }
+    }
+
+    else_actions{}
+  }
+
+  start_mission_straight{
+    is_enabled:b=yes
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=no
+    }
+
+    events{
+      periodicEvent{
+        time:r=0
+      }
+    }
+
+    conditions{}
+    actions{
+      __missionSetTimeSpeed{
+        speed:r=0.01
+        realtimeTriggers:b=yes
+      }
+
+      beginRaceMode{
+        checkAreaPrefix:t="race_wp_"
+        waypointsPrefix:t="race_wp_"
+        winners:i=1
+        doubleWaypoints:b=yes
+        waypointScale:r=1.5
+        laps:i=1
+        respawnVerticalOffset:r=0
+        respawnForwardOffset:r=0
+        statisticsScreenAfterFinish:b=yes
+        reverse:b=no
+        tankRace:b=yes
+        isPathClosed:b=yes
+        defaultTimeToDisableWeapon:r=10000
+      }
+
+      __triggerEnable{
+        target:t="a_player_is_active_requirement"
+      }
+
+      unitSetProperties{
+        object_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        object_var_value:i=0
+        object:t="all_players_squad"
+        targetableByAi:b=no
+        isImmortal:b=yes
+        cannotShoot:b=yes
+        ignoreCollisions:b=yes
+        cannotMove:b=yes
+      }
+    }
+
+    else_actions{}
+  }
+
+  a_player_is_active_requirement{
+    is_enabled:b=no
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=no
+    }
+
+    events{
+      periodicEvent{
+        time:r=0.1
+      }
+    }
+
+    conditions{
+      unitWhenStatus{
+        object_type:t="isActive"
+        check_objects:t="any"
+        object_marking:i=0
+        target_type:t="isAlive"
+        check_period:r=1
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        object_var_value:i=0
+        object:t="players_squad"
+      }
+    }
+
+    actions{
+      triggerEnable{
+        target:t="race_start_timer"
+      }
+    }
+
+    else_actions{}
+  }
+
+  race_start_timer{
+    is_enabled:b=yes
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=yes
+    }
+
+    events{
+      periodicEvent{
+        time:r=1
+      }
+    }
+
+    conditions{
+      varCompareInt{
+        var_value:t="start_timer_int"
+        value:i=0
+        comparasion_func:t="notLess"
+      }
+    }
+
+    actions{
+      varAddString{
+        value:t="@start_timer_int"
+        digits:i=2
+        var:t="start_hint_id_str"
+      }
+
+      playHint{
+        hintType:t="custom"
+        name:t="@start_hint_id_str"
+        action:t="show"
+        shouldFadeOut:b=no
+        time:r=-1
+        priority:i=0
+        isOverFade:b=no
+        target_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        object_var_value:i=0
+        shouldBlink:b=no
+      }
+
+      varModify{
+        operator:t="subAB"
+        value:r=1
+        var:t="start_timer_int"
+      }
+
+      varSetString{
+        value:t="hints/ffa_race_starts_in_"
+        var:t="start_hint_id_str"
+      }
+    }
+
+    else_actions{
+      __missionSetTimeSpeed{
+        speed:r=1.15
+        realtimeTriggers:b=yes
+      }
+
+      __unitPlayEffect{
+        effect_type:t="specify"
+        effect:t="firework_score_turquoise"
+        offset:p3=0, 5, 0
+        show:b=yes
+        attach:b=no
+        scale:r=1
+        loopSpawn:b=yes
+        delay:p2=1, 1
+        doNuclearExplosion:b=no
+        target:t="fireworks_start01"
+        target:t="fireworks_start02"
+        target:t="fireworks_start03"
+        target:t="fireworks_start04"
+        target:t="fireworks_start05"
+        target:t="fireworks_start06"
+        target:t="all_players_squad"
+      }
+
+      unitSetProperties{
+        object_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        object_var_value:i=0
+        object:t="all_players_squad"
+        targetableByAi:b=no
+        isImmortal:b=yes
+        cannotShoot:b=no
+        ignoreCollisions:b=yes
+        cannotMove:b=no
+      }
+
+      wait{
+        time:r=3
+      }
+
+      playHint{
+        hintType:t="custom"
+        name:t=""
+        action:t="hideCur"
+        shouldFadeOut:b=no
+        time:r=-1
+        priority:i=0
+        isOverFade:b=no
+        target_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        object_var_value:i=0
+        shouldBlink:b=no
+      }
+
+      triggerDisable{
+        target:t="race_start_timer"
+      }
+    }
+  }
+
+  race_shooting_enabled{
+    is_enabled:b=no
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=yes
+    }
+
+    events{
+      timeExpires{
+        time:r=10
+      }
+    }
+
+    conditions{}
+    actions{
+      unitSetProperties{
+        object_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        object_var_value:i=0
+        object:t="players_squad"
+        cannotShoot:b=no
+      }
+    }
+
+    else_actions{}
+  }
+
+  ammo{
+    is_enabled:b=yes
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=yes
+    }
+
+    events{
+      periodicEvent{
+        time:r=5
+      }
+    }
+
+    conditions{}
+    actions{
+      unitRestore{
+        target_marking:i=0
+        ressurectIfDead:b=no
+        fullRestore:b=no
+        target:t="all_players_squad"
+        ammoRestore:b=yes
+      }
+    }
+
+    else_actions{}
+  }
+
+  force_immortality{
+    is_enabled:b=yes
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=yes
+    }
+
+    events{
+      periodicEvent{
+        time:r=1
+      }
+    }
+
+    conditions{}
+    actions{
+      unitSetProperties{
+        object_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        object_var_value:i=0
+        object:t="all_players_squad"
+        isImmortal:b=yes
+      }
+    }
+
+    else_actions{}
+  }
+
+  pitstop{
+    is_enabled:b=yes
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=yes
+    }
+
+    events{
+      periodicEvent{
+        time:r=0.01
+      }
+    }
+
+    conditions{
+      unitWhenInArea{
+        math:t="3D"
+        object_type:t="isAlive"
+        object_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        check_objects:t="any"
+        object:t="all_players_squad"
+        target:t="pitstop"
+        target:t="pitstop02"
+      }
+    }
+
+    actions{
+      playHint{
+        hintType:t="standard"
+        name:t="STOP"
+        action:t="show"
+        shouldFadeOut:b=no
+        isOverFade:b=no
+        time:r=3
+        priority:i=0
+        target_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        object_var_value:i=0
+      }
+
+      wait{
+        time:r=1
+      }
+
+      unitSetProperties{
+        object_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        object_var_value:i=0
+        object:t="all_players_squad"
+        cannotMove:b=yes
+      }
+
+      unitWakeUp{
+        target:t="structures_03"
+        target:t="structures_04"
+        target:t="structures_10"
+        target:t="structures_09"
+      }
+
+      wait{
+        time:r=4
+      }
+
+      unitRestore{
+        target_marking:i=0
+        ressurectIfDead:b=no
+        fullRestore:b=yes
+        target:t="all_players_squad"
+        useForTriggerFiltered:b=yes
+      }
+
+      unitPutToSleep{
+        target:t="structures_03"
+        target:t="structures_04"
+        target:t="structures_05"
+        target:t="structures_10"
+        target:t="structures_09"
+        target:t="structures_08"
+      }
+
+      unitSetProperties{
+        object_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        object_var_value:i=0
+        object:t="all_players_squad"
+        cannotMove:b=no
+      }
+
+      playHint{
+        hintType:t="standard"
+        name:t="GO!"
+        action:t="show"
+        shouldFadeOut:b=no
+        isOverFade:b=no
+        time:r=3
+        priority:i=0
+        target_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        object_var_value:i=0
+      }
+
+      wait{
+        time:r=20
+      }
+
+      unitRestore{
+        target_marking:i=0
+        ressurectIfDead:b=no
+        fullRestore:b=yes
+        target:t="all_players_squad"
+        power:r=1
+        useForTriggerFiltered:b=yes
+      }
+    }
+
+    else_actions{}
+  }
+
+  stopstructure{
+    is_enabled:b=yes
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=yes
+    }
+
+    events{
+      periodicEvent{
+        time:r=0.01
+      }
+    }
+
+    conditions{
+      unitWhenInArea{
+        math:t="3D"
+        object_type:t="isAlive"
+        object_marking:i=0
+        object_var_name:t=""
+        object_var_comp_op:t="equal"
+        check_objects:t="any"
+        object:t="all_players_squad"
+        target:t="area_01"
+        target:t="area_02"
+      }
+    }
+
+    actions{
+      unitWakeUp{
+        target:t="structures_05"
+        target:t="structures_08"
+      }
+    }
+
+    else_actions{}
+  }
+
+  sleep{
+    is_enabled:b=yes
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=yes
+    }
+
+    events{
+      initMission{}
+    }
+
+    conditions{}
+    actions{
+      unitPutToSleep{
+        target:t="structures_03"
+        target:t="structures_04"
+        target:t="structures_05"
+        target:t="structures_10"
+        target:t="structures_09"
+        target:t="structures_08"
+      }
+    }
+
+    else_actions{}
+  }
+
+  teleporters{
+    isCategory:b=yes
+    is_enabled:b=yes
+  }
+
+  hints{
+    isCategory:b=yes
+    is_enabled:b=yes
+  }
+
+  info{
+    isCategory:b=yes
+    is_enabled:b=yes
+  }
+
+  effects{
+    isCategory:b=yes
+    is_enabled:b=no
+
+    turquoise{
+      is_enabled:b=no
+      comments:t=""
+
+      props{
+        actionsType:t="PERFORM_ONE_BY_ONE"
+        conditionsType:t="ALL"
+        enableAfterComplete:b=yes
+      }
+
+      events{
+        periodicEvent{
+          time:r=0.5
+        }
+      }
+
+      conditions{
+        unitWhenInArea{
+          math:t="3D"
+          object_type:t="isAlive"
+          object_marking:i=0
+          object_var_name:t=""
+          object_var_comp_op:t="equal"
+          check_objects:t="any"
+          object:t="all_players_squad"
+          target:t=""
+        }
+      }
+
+      actions{
+        unitPlayEffect{
+          effect_type:t="specify"
+          effect:t="firework_score_turquoise"
+          offset:p3=0, 0.5, 0
+          show:b=yes
+          attach:b=no
+          scale:r=1
+          doNuclearExplosion:b=no
+          loopSpawn:b=yes
+          delay:p2=1, 1
+          target:t="all_players_squad"
+          useForTriggerFiltered:b=yes
+        }
+
+        unitPlayEffect{
+          effect_type:t="specify"
+          effect:t="firework_score_ginger"
+          offset:p3=0, 0.5, 0
+          show:b=yes
+          attach:b=no
+          scale:r=1
+          doNuclearExplosion:b=no
+          loopSpawn:b=yes
+          delay:p2=1, 1
+          target:t="all_players_squad"
+          useForTriggerFiltered:b=yes
+        }
+      }
+
+      else_actions{}
+    }
+  }
+
+  visibility{
+    isCategory:b=yes
+    is_enabled:b=no
+
+    visibility_400{
+      is_enabled:b=no
+      comments:t=""
+
+      props{
+        actionsType:t="PERFORM_ONE_BY_ONE"
+        conditionsType:t="ALL"
+        enableAfterComplete:b=yes
+      }
+
+      events{
+        initMission{}
+      }
+
+      conditions{}
+      actions{
+        unitSetStealth{
+          set:b=no
+          radius:r=400
+          target:t="wheeled_vehicles_01"
+          target:t="tankModels_01"
+          target:t="tankModels_02"
+          target:t="tankModels_03"
+          target:t="wheeled_vehicles_02"
+          target:t="wheeled_vehicles_03"
+        }
+      }
+
+      else_actions{}
+    }
+  }
+
+  Trigger_01{
+    is_enabled:b=yes
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=no
+    }
+
+    events{
+      timeExpires{
+        time:r=120
+      }
+    }
+
+    conditions{}
+    actions{
+      unitDamage{
+        power:r=0.5
+        useEffect:b=no
+        countEffects:i=1
+        delay:p2=1, 1
+        offset:p3=0, 0, 0
+        radiusOffset:p2=10, 15
+        target:t="all_players_squad"
+      }
+    }
+
+    else_actions{}
+  }
+}
+
+mission_objectives{
+  isCategory:b=yes
+  is_enabled:b=yes
+
+  phiphi_race_mission_objective{
+    is_enabled:b=yes
+    comments:t=""
+    type:t="abstractMissionObjective"
+
+    props{
+      isPrimary:b=yes
+      timeLimit:i=5000
+      scoreConst:i=100
+      scoreTime:i=400
+      team:t="Both"
+    }
+
+    onSuccess{}
+    onFailed{}
+  }
+}
+
+variables{
+  start_timer_int:i=10
+  start_hint_id_str:t="hints/ffa_race_starts_in_"
+}
+
+dialogs{}
+airfields{}
+effects{}
+units{
+  armada{
+    name:t="t2_player01"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-7343.31, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player02"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-7457.64, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player03"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-7571.98, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player04"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-7686.31, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player05"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-7800.64, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player06"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-7914.97, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player07"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-8029.3, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player08"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-8143.64, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player09"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-8257.97, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player10"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-8372.3, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player11"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-8486.63, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player12"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-8600.96, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player13"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-8715.3, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player14"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-8829.63, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player15"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-8943.96, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player16"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-9058.29, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player17"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-9172.62, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player18"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-9286.96, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player19"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-9401.29, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player20"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-9515.62, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player21"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-9629.95, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player22"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-9744.28, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player23"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-9858.62, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player24"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-9972.95, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player25"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10087.3, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player26"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10201.6, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player27"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10315.9, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player28"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10430.3, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player29"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10544.6, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player30"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10658.9, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player31"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10773.3, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t2_player32"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10887.6, 5652.11, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  squad{
+    name:t="t1_players_squad"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-7432.11, 6100.15, -15265.8]]
+
+    props{
+      object_marking:i=0
+      squad_members:t="t1_player01"
+      squad_members:t="t1_player02"
+      squad_members:t="t1_player03"
+      squad_members:t="t1_player04"
+      squad_members:t="t1_player05"
+      squad_members:t="t1_player06"
+      squad_members:t="t1_player07"
+      squad_members:t="t1_player08"
+      squad_members:t="t1_player09"
+      squad_members:t="t1_player10"
+      squad_members:t="t1_player11"
+      squad_members:t="t1_player12"
+      squad_members:t="t1_player13"
+      squad_members:t="t1_player14"
+      squad_members:t="t1_player15"
+      squad_members:t="t1_player16"
+      squad_members:t="t1_player17"
+      squad_members:t="t1_player18"
+      squad_members:t="t1_player19"
+      squad_members:t="t1_player20"
+      squad_members:t="t1_player21"
+      squad_members:t="t1_player22"
+      squad_members:t="t1_player23"
+      squad_members:t="t1_player24"
+      squad_members:t="t1_player25"
+      squad_members:t="t1_player26"
+      squad_members:t="t1_player27"
+      squad_members:t="t1_player28"
+      squad_members:t="t1_player29"
+      squad_members:t="t1_player30"
+      squad_members:t="t1_player31"
+      squad_members:t="t1_player32"
+      object_type:t="isTeamA"
+    }
+  }
+
+  squad{
+    name:t="t2_players_squad"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-7762.57, 6100.15, -15265.8]]
+
+    props{
+      object_marking:i=0
+      squad_members:t="t2_player01"
+      squad_members:t="t2_player02"
+      squad_members:t="t2_player03"
+      squad_members:t="t2_player04"
+      squad_members:t="t2_player05"
+      squad_members:t="t2_player06"
+      squad_members:t="t2_player07"
+      squad_members:t="t2_player08"
+      squad_members:t="t2_player09"
+      squad_members:t="t2_player10"
+      squad_members:t="t2_player11"
+      squad_members:t="t2_player12"
+      squad_members:t="t2_player13"
+      squad_members:t="t2_player14"
+      squad_members:t="t2_player15"
+      squad_members:t="t2_player16"
+      squad_members:t="t2_player17"
+      squad_members:t="t2_player18"
+      squad_members:t="t2_player19"
+      squad_members:t="t2_player20"
+      squad_members:t="t2_player21"
+      squad_members:t="t2_player22"
+      squad_members:t="t2_player23"
+      squad_members:t="t2_player24"
+      squad_members:t="t2_player25"
+      squad_members:t="t2_player26"
+      squad_members:t="t2_player27"
+      squad_members:t="t2_player28"
+      squad_members:t="t2_player29"
+      squad_members:t="t2_player30"
+      squad_members:t="t2_player31"
+      squad_members:t="t2_player32"
+      object_type:t="isTeamB"
+    }
+  }
+
+  squad{
+    name:t="all_players_squad"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-8093.04, 6100.15, -15265.8]]
+
+    props{
+      object_marking:i=0
+      squad_members:t="t1_player01"
+      squad_members:t="t1_player02"
+      squad_members:t="t1_player03"
+      squad_members:t="t1_player04"
+      squad_members:t="t1_player05"
+      squad_members:t="t1_player06"
+      squad_members:t="t1_player07"
+      squad_members:t="t1_player08"
+      squad_members:t="t1_player09"
+      squad_members:t="t1_player10"
+      squad_members:t="t1_player11"
+      squad_members:t="t1_player12"
+      squad_members:t="t1_player13"
+      squad_members:t="t1_player14"
+      squad_members:t="t1_player15"
+      squad_members:t="t1_player16"
+      squad_members:t="t1_player17"
+      squad_members:t="t1_player18"
+      squad_members:t="t1_player19"
+      squad_members:t="t1_player20"
+      squad_members:t="t1_player21"
+      squad_members:t="t1_player22"
+      squad_members:t="t1_player23"
+      squad_members:t="t1_player24"
+      squad_members:t="t1_player25"
+      squad_members:t="t1_player26"
+      squad_members:t="t1_player27"
+      squad_members:t="t1_player28"
+      squad_members:t="t1_player29"
+      squad_members:t="t1_player30"
+      squad_members:t="t1_player31"
+      squad_members:t="t1_player32"
+      squad_members:t="t2_player01"
+      squad_members:t="t2_player02"
+      squad_members:t="t2_player03"
+      squad_members:t="t2_player04"
+      squad_members:t="t2_player05"
+      squad_members:t="t2_player06"
+      squad_members:t="t2_player07"
+      squad_members:t="t2_player08"
+      squad_members:t="t2_player09"
+      squad_members:t="t2_player10"
+      squad_members:t="t2_player11"
+      squad_members:t="t2_player12"
+      squad_members:t="t2_player13"
+      squad_members:t="t2_player14"
+      squad_members:t="t2_player15"
+      squad_members:t="t2_player16"
+      squad_members:t="t2_player17"
+      squad_members:t="t2_player18"
+      squad_members:t="t2_player19"
+      squad_members:t="t2_player20"
+      squad_members:t="t2_player21"
+      squad_members:t="t2_player22"
+      squad_members:t="t2_player23"
+      squad_members:t="t2_player24"
+      squad_members:t="t2_player25"
+      squad_members:t="t2_player26"
+      squad_members:t="t2_player27"
+      squad_members:t="t2_player28"
+      squad_members:t="t2_player29"
+      squad_members:t="t2_player30"
+      squad_members:t="t2_player31"
+      squad_members:t="t2_player32"
+    }
+  }
+
+  squad{
+    name:t="stealth_squad"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-8423.5, 6100.15, -15265.8]]
+
+    props{
+      object_marking:i=0
+      squad_members:t="structures_02"
+      squad_members:t="structures_01"
+      squad_members:t="structures_03"
+      squad_members:t="structures_04"
+      squad_members:t="structures_05"
+      squad_members:t="structures_06"
+      squad_members:t="structures_08"
+      squad_members:t="structures_07"
+      squad_members:t="structures_10"
+      squad_members:t="structures_09"
+    }
+  }
+
+  squad{
+    name:t="immortal_squad"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-8753.96, 6100.15, -15265.8]]
+
+    props{
+      object_marking:i=0
+      squad_members:t="structures_02"
+      squad_members:t="structures_01"
+      squad_members:t="structures_03"
+      squad_members:t="structures_04"
+      squad_members:t="structures_05"
+      squad_members:t="structures_06"
+      squad_members:t="structures_08"
+      squad_members:t="structures_07"
+      squad_members:t="structures_10"
+      squad_members:t="structures_09"
+    }
+  }
+
+  squad{
+    name:t="btank_squad"
+    tm:m=[[1, 7.50781e-09, -1.30666e-08] [-5.12475e-09, 0.984808, 0.173648] [1.41718e-08, -0.173648, 0.984808] [-9084.43, 6100.15, -15265.8]]
+
+    props{
+      object_marking:i=0
+      squad_members:t="wheeled_vehicles_01"
+      squad_members:t="tankModels_01"
+      squad_members:t="tankModels_02"
+      squad_members:t="wheeled_vehicles_02"
+      squad_members:t="wheeled_vehicles_03"
+    }
+  }
+
+  squad{
+    name:t="bplane_squad"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-9414.89, 6100.15, -15265.8]]
+
+    props{
+      object_marking:i=0
+      squad_members:t="bplane01"
+    }
+  }
+
+  squad{
+    name:t="bship_squad"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-9745.35, 6100.15, -15265.8]]
+
+    props{
+      object_marking:i=0
+      squad_members:t="bship02"
+    }
+  }
+
+  squad{
+    name:t="binfantry_squad"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10075.8, 6100.15, -15265.8]]
+
+    props{
+      object_marking:i=0
+      squad_members:t="binfantry01"
+    }
+  }
+
+  squad{
+    name:t="structures_squad"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10406.3, 6100.15, -15265.8]]
+
+    props{
+      object_marking:i=0
+      squad_members:t="structures_50"
+    }
+  }
+
+  squad{
+    name:t="fireworks_squad"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10736.7, 6100.15, -15265.8]]
+
+    props{
+      object_marking:i=0
+      squad_members:t="structures_74"
+    }
+  }
+
+  armada{
+    name:t="t1_player01"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-7343.31, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player02"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-7445.35, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player03"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-7547.39, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player04"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-7649.43, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player05"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-7751.47, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player06"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-7853.52, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player07"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-7955.56, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player08"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-8057.6, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player09"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-8159.64, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player10"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-8261.68, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player11"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-8363.72, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player12"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-8465.76, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player13"
+    tm:m=[[1, -1.07593e-07, -2.09926e-07] [1.07593e-07, 1, -2.98023e-08] [2.09926e-07, 2.98023e-08, 1] [-8567.8, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player14"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-8669.84, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player15"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-8771.88, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player16"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-8873.92, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player17"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-8975.96, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player18"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-9078.01, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player19"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-9180.05, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player20"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-9282.09, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player21"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-9384.13, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player22"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-9486.17, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player23"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-9588.21, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player24"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-9690.25, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player25"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-9792.29, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player26"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-9894.33, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player27"
+    tm:m=[[1, -1.12718e-07, -1.95754e-07] [7.70129e-08, 0.984808, -0.173648] [2.12353e-07, 0.173648, 0.984808] [-9996.38, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player28"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10098.4, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player29"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10200.5, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player30"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10302.5, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player31"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10404.5, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="t1_player32"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10506.6, 6820.87, -14801.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  area_squad{
+    name:t="ship_respawnH"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-14953, 5684.15, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="ship_respawnG"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-14587.8, 5684.15, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="ship_respawnF"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-14222.6, 5684.15, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="ship_respawnE"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-13857.4, 5684.15, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="ship_respawnD"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-13492.2, 5684.15, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="ship_respawnC"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-13126.9, 5684.15, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="ship_respawnB"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-12761.7, 5684.15, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="ship_respawnA"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-12396.5, 5684.15, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="tank_respawnA"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-12396.5, 6248.72, -15153.2]]
+
+    props{
+      squad_members:t="spawn01"
+      squad_members:t="spawn02"
+      squad_members:t="spawn03"
+      squad_members:t="spawn04"
+      squad_members:t="spawn05"
+      squad_members:t="spawn06"
+      squad_members:t="spawn07"
+      squad_members:t="spawn08"
+      squad_members:t="spawn09"
+      squad_members:t="spawn10"
+      squad_members:t="spawn11"
+      squad_members:t="spawn12"
+      squad_members:t="spawn13"
+      squad_members:t="spawn14"
+      squad_members:t="spawn15"
+      squad_members:t="spawn16"
+      squad_members:t="spawn17"
+      squad_members:t="spawn18"
+      squad_members:t="spawn19"
+      squad_members:t="spawn20"
+      squad_members:t="spawn21"
+      squad_members:t="spawn22"
+      squad_members:t="spawn23"
+      squad_members:t="spawn24"
+      squad_members:t="spawn25"
+      squad_members:t="spawn26"
+      squad_members:t="spawn27"
+      squad_members:t="spawn28"
+      squad_members:t="spawn29"
+      squad_members:t="spawn30"
+      squad_members:t="spawn31"
+      squad_members:t="spawn32"
+      squad_members:t="spawn33"
+      squad_members:t="spawn34"
+      squad_members:t="spawn35"
+      squad_members:t="spawn36"
+      squad_members:t="spawn37"
+      squad_members:t="spawn38"
+      squad_members:t="spawn39"
+      squad_members:t="spawn40"
+      squad_members:t="spawn41"
+      squad_members:t="spawn42"
+      squad_members:t="spawn43"
+      squad_members:t="spawn44"
+      squad_members:t="spawn45"
+      squad_members:t="spawn46"
+      squad_members:t="spawn47"
+      squad_members:t="spawn48"
+      squad_members:t="spawn49"
+      squad_members:t="spawn50"
+      squad_members:t="spawn51"
+      squad_members:t="spawn52"
+      squad_members:t="spawn53"
+      squad_members:t="spawn54"
+      squad_members:t="spawn55"
+      squad_members:t="spawn56"
+      squad_members:t="spawn57"
+      squad_members:t="spawn58"
+      squad_members:t="spawn59"
+      squad_members:t="spawn60"
+      squad_members:t="spawn61"
+      squad_members:t="spawn62"
+      squad_members:t="spawn63"
+      squad_members:t="spawn64"
+    }
+  }
+
+  area_squad{
+    name:t="tank_respawnA_teamA"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-12396.5, 6248.72, -15153.2]]
+
+    props{
+      squad_members:t="spawn01"
+      squad_members:t="spawn03"
+      squad_members:t="spawn05"
+      squad_members:t="spawn07"
+      squad_members:t="spawn09"
+      squad_members:t="spawn11"
+      squad_members:t="spawn13"
+      squad_members:t="spawn15"
+      squad_members:t="spawn17"
+      squad_members:t="spawn19"
+      squad_members:t="spawn21"
+      squad_members:t="spawn23"
+      squad_members:t="spawn25"
+      squad_members:t="spawn27"
+      squad_members:t="spawn29"
+      squad_members:t="spawn31"
+      squad_members:t="spawn33"
+      squad_members:t="spawn35"
+      squad_members:t="spawn37"
+      squad_members:t="spawn39"
+      squad_members:t="spawn41"
+      squad_members:t="spawn43"
+      squad_members:t="spawn45"
+      squad_members:t="spawn47"
+      squad_members:t="spawn49"
+      squad_members:t="spawn51"
+      squad_members:t="spawn53"
+      squad_members:t="spawn55"
+      squad_members:t="spawn57"
+      squad_members:t="spawn59"
+      squad_members:t="spawn61"
+      squad_members:t="spawn63"
+    }
+  }
+
+  area_squad{
+    name:t="tank_respawnA_teamB"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-12396.5, 6248.72, -15153.2]]
+
+    props{
+      squad_members:t="spawn02"
+      squad_members:t="spawn04"
+      squad_members:t="spawn06"
+      squad_members:t="spawn08"
+      squad_members:t="spawn10"
+      squad_members:t="spawn12"
+      squad_members:t="spawn14"
+      squad_members:t="spawn16"
+      squad_members:t="spawn18"
+      squad_members:t="spawn20"
+      squad_members:t="spawn22"
+      squad_members:t="spawn24"
+      squad_members:t="spawn26"
+      squad_members:t="spawn28"
+      squad_members:t="spawn30"
+      squad_members:t="spawn32"
+      squad_members:t="spawn34"
+      squad_members:t="spawn36"
+      squad_members:t="spawn38"
+      squad_members:t="spawn40"
+      squad_members:t="spawn42"
+      squad_members:t="spawn44"
+      squad_members:t="spawn46"
+      squad_members:t="spawn48"
+      squad_members:t="spawn50"
+      squad_members:t="spawn52"
+      squad_members:t="spawn54"
+      squad_members:t="spawn56"
+      squad_members:t="spawn58"
+      squad_members:t="spawn60"
+      squad_members:t="spawn62"
+      squad_members:t="spawn64"
+    }
+  }
+
+  area_squad{
+    name:t="tank_respawnB"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-12761.7, 6248.72, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="tank_respawnC"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-13126.9, 6248.72, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="tank_respawnD"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-13492.2, 6248.72, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="tank_respawnE"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-13857.4, 6248.72, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="tank_respawnF"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-14222.6, 6248.72, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="tank_respawnG"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-14587.8, 6248.72, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="tank_respawnH"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-14953, 6248.72, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="plane_respawnH"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-14953, 6855.94, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="plane_respawnG"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-14587.8, 6855.94, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="plane_respawnF"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-14222.6, 6855.94, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="plane_respawnE"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-13857.4, 6855.94, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="plane_respawnD"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-13492.2, 6855.94, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="plane_respawnC"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-13126.9, 6855.94, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="plane_respawnB"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-12761.7, 6855.94, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  area_squad{
+    name:t="plane_respawnA"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-12396.5, 6855.94, -15153.2]]
+
+    props{
+      squad_members:t=""
+    }
+  }
+
+  structures{
+    name:t="structures_03"
+    tm:m=[[0.990124, 0, -0.140192] [0, 1, 0] [0.140192, 0, 0.990124] [5973.81, -1.99365, -6280.84]]
+    unit_class:t="unit_hangar_technic_idle_fixing_a_char"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=3
+      formation_type:t="cols"
+      formation_div:i=1
+      formation_step:p2=2.5, 2
+      formation_noise:p2=0, 0
+      uniqueName:t=""
+      attack_type:t="fire_at_will"
+    }
+
+    way{}
+  }
+
+  structures{
+    name:t="structures_04"
+    tm:m=[[-0.990124, 0, 0.140192] [0, 1, 0] [-0.140192, 0, -0.990124] [5968.85, -2.24403, -6286.01]]
+    unit_class:t="unit_hangar_technic_idle_fixing_a_char"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=3
+      formation_type:t="cols"
+      formation_div:i=1
+      formation_step:p2=2.5, 2
+      formation_noise:p2=0, 0
+      uniqueName:t=""
+      attack_type:t="fire_at_will"
+    }
+
+    way{}
+  }
+
+  structures{
+    name:t="structures_05"
+    tm:m=[[4.13113e-08, 0.4, -5.84926e-09] [0.000990123, -1.04308e-10, -0.000140192] [-0.056077, 0, -0.39605] [5967, -2.02942, -6284.34]]
+    unit_class:t="wood_simple_br"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      formation_type:t="cols"
+      formation_div:i=1
+      formation_step:p2=2.5, 2
+      formation_noise:p2=1, 1
+      uniqueName:t=""
+      attack_type:t="fire_at_will"
+    }
+
+    way{}
+  }
+
+  structures{
+    name:t="structures_10"
+    tm:m=[[-0.983794, 0, 0.179306] [0, 1, 0] [-0.179306, 0, -0.983794] [6006, 0.0292487, -6353.75]]
+    unit_class:t="unit_hangar_technic_idle_fixing_a_char"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=3
+      formation_type:t="cols"
+      formation_div:i=1
+      formation_step:p2=2.5, 2
+      formation_noise:p2=0, 0
+      uniqueName:t=""
+      attack_type:t="fire_at_will"
+    }
+
+    way{}
+  }
+
+  structures{
+    name:t="structures_09"
+    tm:m=[[0.983794, 0, -0.179306] [0, 1, 0] [0.179306, 0, 0.983794] [6011.15, -0.225832, -6348.77]]
+    unit_class:t="unit_hangar_technic_idle_fixing_a_char"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=3
+      formation_type:t="cols"
+      formation_div:i=1
+      formation_step:p2=2.5, 2
+      formation_noise:p2=0, 0
+      uniqueName:t=""
+      attack_type:t="fire_at_will"
+    }
+
+    way{}
+  }
+
+  structures{
+    name:t="structures_08"
+    tm:m=[[-4.10471e-08, 0.4, 7.48124e-09] [-0.000983792, -1.04308e-10, 0.000179306] [0.0717228, 0, 0.393517] [6012.85, -0.107367, -6351.02]]
+    unit_class:t="wood_simple_br"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      formation_type:t="cols"
+      formation_div:i=1
+      formation_step:p2=2.5, 2
+      formation_noise:p2=1, 1
+      uniqueName:t=""
+      attack_type:t="fire_at_will"
+    }
+
+    way{}
+  }
+
+  structures{
+    name:t="structures_07"
+    tm:m=[[0.845989, -0.5, -0.185214] [0.488431, 0.866026, -0.106933] [0.213866, 6.73667e-09, 0.976863] [1035.84, 386.609, 115.612]]
+    unit_class:t="flag_red"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=10
+      formation_type:t="rows"
+      formation_div:i=1
+      formation_step:p2=40, 2
+      formation_noise:p2=0, 0
+      uniqueName:t=""
+      attack_type:t="fire_at_will"
+    }
+
+    way{}
+  }
+
+  structures{
+    name:t="structures_01"
+    tm:m=[[2.93059, 1.80643e-14, -0.641599] [1.5748e-11, 3, 7.73845e-13] [0.641599, -4.04543e-12, 2.93059] [1074.6, 388.331, 131.426]]
+    unit_class:t="unit_american_traffic_light_a_char"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      formation_type:t="rows"
+      formation_div:i=3
+      formation_step:p2=2.5, 2
+      formation_noise:p2=0.1, 0.1
+      uniqueName:t=""
+      attack_type:t="fire_at_will"
+    }
+
+    way{}
+  }
+
+  structures{
+    name:t="structures_02"
+    tm:m=[[2.93059, 6.37221e-13, -0.641599] [-1.27139e-08, 3, -5.80694e-08] [0.641599, -1.59887e-10, 2.93059] [1041.05, 386.465, 138.763]]
+    unit_class:t="unit_american_traffic_light_a_char"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      formation_type:t="rows"
+      formation_div:i=3
+      formation_step:p2=2.5, 2
+      formation_noise:p2=0.1, 0.1
+      uniqueName:t=""
+      attack_type:t="fire_at_will"
+    }
+
+    way{}
+  }
+
+  structures{
+    name:t="structures_06"
+    tm:m=[[-0.845989, -0.5, 0.185214] [-0.488431, 0.866026, 0.106933] [-0.213866, 6.1744e-09, -0.976863] [1070.24, 388.623, 108.075]]
+    unit_class:t="flag_blue"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=10
+      formation_type:t="rows"
+      formation_div:i=1
+      formation_step:p2=40, 2
+      formation_noise:p2=0, 0
+      uniqueName:t=""
+      attack_type:t="fire_at_will"
+    }
+
+    way{}
+  }
+
+  objectGroups{
+    name:t="armada_01"
+    tm:m=[[0.40931, 0, 0.912395] [0, 1, 0] [-0.912395, 0, 0.40931] [1106.67, 387.046, 245.029]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_02"
+    tm:m=[[-0.198908, 0, -0.980018] [0, 1, 0] [0.980018, 0, -0.198908] [1125.48, 387.046, 234.209]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_03"
+    tm:m=[[-0.734868, 0, -0.67821] [0, 1, 0] [0.67821, 0, -0.734868] [1127.99, 387.046, 323.496]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_04"
+    tm:m=[[-0.997974, 0, 0.06362] [0, 1, 0] [-0.06362, 0, -0.997974] [1141.9, 387.046, 324.741]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_05"
+    tm:m=[[-0.544824, 0, 0.838551] [0, 1, 0] [-0.838551, 0, -0.544824] [1151.37, 387.046, 314.543]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_06"
+    tm:m=[[0.499122, 0, 0.866532] [0, 1, 0] [-0.866532, 0, 0.499122] [1100.01, 387.046, 232.811]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_07"
+    tm:m=[[-0.544824, 0, 0.838551] [0, 1, 0] [-0.838551, 0, -0.544824] [1158.33, 387.046, 303.816]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_08"
+    tm:m=[[0.317164, 0, 0.948371] [0, 1, 0] [-0.948371, 0, 0.317164] [1156.95, 387.046, 289.719]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_09"
+    tm:m=[[0.317164, 0, 0.948371] [0, 1, 0] [-0.948371, 0, 0.317164] [1153.02, 387.046, 278.025]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_10"
+    tm:m=[[-0.734868, 0, -0.67821] [0, 1, 0] [0.67821, 0, -0.734868] [1148.75, 387.046, 274.374]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_11"
+    tm:m=[[-0.734868, 0, -0.67821] [0, 1, 0] [0.67821, 0, -0.734868] [1139.22, 387.046, 265.628]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_12"
+    tm:m=[[-0.633369, 0, -0.77385] [0, 1, 0] [0.77385, 0, -0.633369] [1124.59, 387.046, 297.4]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_13"
+    tm:m=[[-0.633369, 0, -0.77385] [0, 1, 0] [0.77385, 0, -0.633369] [1116.46, 387.046, 287.396]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_14"
+    tm:m=[[-0.844791, 0, -0.535096] [0, 1, 0] [0.535096, 0, -0.844791] [1117.7, 387.046, 314.272]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_15"
+    tm:m=[[-0.942788, 0, -0.333393] [0, 1, 0] [0.333393, 0, -0.942788] [1106.21, 387.046, 307.764]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_16"
+    tm:m=[[-0.979748, 0, -0.200236] [0, 1, 0] [0.200236, 0, -0.979748] [831.131, 387.046, 347.971]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_17"
+    tm:m=[[-0.855331, 0, -0.518082] [0, 1, 0] [0.518082, 0, -0.855331] [816.68, 387.046, 344.542]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_18"
+    tm:m=[[0.438672, 0, 0.898647] [0, 1, 0] [-0.898647, 0, 0.438672] [773.473, 387.046, 262.882]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_19"
+    tm:m=[[-0.979748, 0, -0.200236] [0, 1, 0] [0.200236, 0, -0.979748] [749.606, 387.046, 224.195]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_20"
+    tm:m=[[-0.885848, 0, -0.463976] [0, 1, 0] [0.463976, 0, -0.885848] [762.603, 387.046, 229.889]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_21"
+    tm:m=[[-0.992995, 0, 0.118153] [0, 1, 0] [-0.118153, 0, -0.992995] [735.967, 391.991, 222.071]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_22"
+    tm:m=[[-0.739537, 0, 0.673116] [0, 1, 0] [-0.673116, 0, -0.739537] [518.071, 391.991, 92.6603]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_23"
+    tm:m=[[-0.4963, 0, 0.868151] [0, 1, 0] [-0.868151, 0, -0.4963] [485.88, 391.991, 130.771]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_24"
+    tm:m=[[-0.691237, 0, -0.722628] [0, 1, 0] [0.722628, 0, -0.691237] [488.434, 391.991, 150.517]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_25"
+    tm:m=[[-0.691237, 0, -0.722628] [0, 1, 0] [0.722628, 0, -0.691237] [464.664, 391.991, 151.069]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_26"
+    tm:m=[[-0.691237, 0, -0.722628] [0, 1, 0] [0.722628, 0, -0.691237] [474.256, 391.991, 161]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_27"
+    tm:m=[[-0.89417, 0, 0.447728] [0, 1, 0] [-0.447728, 0, -0.89417] [529.987, 391.991, 86.0535]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_30"
+    tm:m=[[-0.739537, 0, 0.673116] [0, 1, 0] [-0.673116, 0, -0.739537] [763.211, 388.841, -154.92]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_29"
+    tm:m=[[-0.89417, 0, 0.447728] [0, 1, 0] [-0.447728, 0, -0.89417] [775.127, 388.775, -161.527]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_32"
+    tm:m=[[-0.287466, 0, -0.957791] [0, 1, 0] [0.957791, 0, -0.287466] [986.146, 387.046, -228.518]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_31"
+    tm:m=[[0.950919, 0, -0.30944] [0, 1, 0] [0.30944, 0, 0.950919] [974.855, 387.046, -221.472]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_34"
+    tm:m=[[-0.279262, 0, -0.960215] [0, 1, 0] [0.960215, 0, -0.279262] [1006.83, 387.046, -230.441]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_33"
+    tm:m=[[-0.279262, 0, -0.960215] [0, 1, 0] [0.960215, 0, -0.279262] [1003.19, 387.046, -242.846]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_37"
+    tm:m=[[-0.279262, 0, -0.960215] [0, 1, 0] [0.960215, 0, -0.279262] [1014.16, 387.046, -205.688]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_36"
+    tm:m=[[-0.279262, 0, -0.960215] [0, 1, 0] [0.960215, 0, -0.279262] [1010.52, 387.046, -218.094]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_39"
+    tm:m=[[-0.917246, 0, -0.398321] [0, 1, 0] [0.398321, 0, -0.917246] [895.923, 388.841, -384.317]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_38"
+    tm:m=[[-0.775129, 0, -0.631802] [0, 1, 0] [0.631802, 0, -0.775129] [906.836, 388.775, -376.16]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_50"
+    tm:m=[[-0.88326, 0, -0.468884] [0, 1, 0] [0.468884, 0, -0.88326] [447.229, 402.763, -1165.68]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_51"
+    tm:m=[[0.98815, 0, -0.153493] [0, 1, 0] [0.153493, 0, 0.98815] [412.097, 403.439, -1170.93]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_52"
+    tm:m=[[-0.452446, 0, -0.891792] [0, 1, 0] [0.891792, 0, -0.452446] [850.102, 387.046, -437.652]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_53"
+    tm:m=[[-0.996146, 0, -0.087708] [0, 1, 0] [0.087708, 0, -0.996146] [434.793, 403.178, -1171.07]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_54"
+    tm:m=[[0.956356, 0, 0.292203] [0, 1, 0] [-0.292203, 0, 0.956356] [808.984, 387.046, -417.384]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_55"
+    tm:m=[[0.956356, 0, 0.292203] [0, 1, 0] [-0.292203, 0, 0.956356] [821.357, 387.046, -413.636]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_56"
+    tm:m=[[0.631115, 0, -0.775689] [0, 1, 0] [0.775689, 0, 0.631115] [796.962, 387.046, -441.658]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_57"
+    tm:m=[[0.917131, 0, 0.398587] [0, 1, 0] [-0.398587, 0, 0.917131] [784.965, 387.046, -445.907]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_58"
+    tm:m=[[0.998694, 0, 0.0510955] [0, 1, 0] [-0.0510955, 0, 0.998694] [820, 387.046, -450.084]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_59"
+    tm:m=[[0.999529, 0, -0.0306746] [0, 1, 0] [0.0306746, 0, 0.999529] [855.085, 387.046, -437.452]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_60"
+    tm:m=[[0.968978, 0, 0.247147] [0, 1, 0] [-0.247147, 0, 0.968978] [847.803, 387.046, -422.766]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_49"
+    tm:m=[[0.958549, 0, 0.284927] [0, 1, 0] [-0.284927, 0, 0.958549] [860.465, 387.106, -419.293]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_61"
+    tm:m=[[0.998694, 0, 0.0510955] [0, 1, 0] [-0.0510955, 0, 0.998694] [833.179, 387.046, -449.658]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_62"
+    tm:m=[[0.998694, 0, 0.0510955] [0, 1, 0] [-0.0510955, 0, 0.998694] [807.375, 387.046, -450.471]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_63"
+    tm:m=[[0.94321, 0, 0.332196] [0, 1, 0] [-0.332196, 0, 0.94321] [873.058, 387.106, -415.643]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_64"
+    tm:m=[[0.911511, 0, 0.411275] [0, 1, 0] [-0.411275, 0, 0.911511] [885.595, 387.106, -411.16]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_65"
+    tm:m=[[0.837333, 0, 0.546694] [0, 1, 0] [-0.546694, 0, 0.837333] [897.914, 387.106, -405.372]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_41"
+    tm:m=[[-0.34742, 0, -0.93771] [0, 1, 0] [0.93771, 0, -0.34742] [1103.75, 387.046, -579.076]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_40"
+    tm:m=[[0.973956, 0, -0.226737] [0, 1, 0] [0.226737, 0, 0.973956] [1093.09, 387.046, -572.927]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_44"
+    tm:m=[[-0.926978, 0, -0.375115] [0, 1, 0] [0.375115, 0, -0.926978] [1005.33, 387.046, -931.806]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_43"
+    tm:m=[[0.194792, 0, -0.980845] [0, 1, 0] [0.980845, 0, 0.194792] [1006.09, 387.046, -919.042]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_46"
+    tm:m=[[0.897615, 0, 0.44078] [0, 1, 0] [-0.44078, 0, 0.897615] [886.944, 388.775, -972.427]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_45"
+    tm:m=[[0.983433, 0, 0.181269] [0, 1, 0] [-0.181269, 0, 0.983433] [899.416, 388.841, -966.94]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_66"
+    tm:m=[[0.750683, 0, 0.660662] [0, 1, 0] [-0.660662, 0, 0.750683] [540.58, 388.775, -1111.34]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_48"
+    tm:m=[[0.901527, 0, 0.432722] [0, 1, 0] [-0.432722, 0, 0.901527] [551.177, 388.841, -1102.77]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_67"
+    tm:m=[[-0.735391, 0, -0.677643] [0, 1, 0] [0.677643, 0, -0.735391] [672.732, 388.775, -518.178]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_47"
+    tm:m=[[-0.891404, 0, -0.453209] [0, 1, 0] [0.453209, 0, -0.891404] [662.332, 388.841, -526.982]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_70"
+    tm:m=[[-0.91125, 0, 0.411854] [0, 1, 0] [-0.411854, 0, -0.91125] [463.431, 388.775, -526.678]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_69"
+    tm:m=[[-0.765692, 0, 0.643207] [0, 1, 0] [-0.643207, 0, -0.765692] [451.262, 388.841, -520.549]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_73"
+    tm:m=[[-0.939887, 0, 0.341486] [0, 1, 0] [-0.341486, 0, -0.939887] [280.776, 388.841, -379.388]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_72"
+    tm:m=[[-0.997241, 0, 0.0742379] [0, 1, 0] [-0.0742379, 0, -0.997241] [294.309, 388.775, -380.969]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_76"
+    tm:m=[[0.956338, 0, 0.292263] [0, 1, 0] [-0.292263, 0, 0.956338] [231.635, 388.841, -389.526]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_75"
+    tm:m=[[0.975101, 0, -0.221761] [0, 1, 0] [0.221761, 0, 0.975101] [244.052, 388.775, -386.389]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_74"
+    tm:m=[[-0.868157, 0, 0.496289] [0, 1, 0] [-0.496289, 0, -0.868157] [268.046, 388.841, -374.339]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_79"
+    tm:m=[[0.970278, 0.0297914, -0.240151] [-0.00627329, 0.995156, 0.0981057] [0.241911, -0.0936833, 0.965765] [337.902, 388.841, -399.08]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_78"
+    tm:m=[[0.895265, 0.0584155, -0.441688] [-0.0171794, 0.995156, 0.0967934] [0.445203, -0.0790678, 0.891932] [350.881, 389.237, -402.943]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_80"
+    tm:m=[[0.884318, 0, -0.466886] [0, 1, 0] [0.466886, 0, 0.884318] [-439.141, 403.439, -1257.06]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_81"
+    tm:m=[[-0.970417, 0, 0.241434] [0, 1, 0] [-0.241434, 0, -0.970417] [-417.729, 403.179, -1264.59]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_77"
+    tm:m=[[-0.9878, 0, -0.155726] [0, 1, 0] [0.155726, 0, -0.9878] [-404.215, 402.763, -1263.54]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_84"
+    tm:m=[[-0.624616, 0, 0.780933] [0, 1, 0] [-0.780933, 0, -0.624616] [-506.135, 391.788, -1206.74]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_83"
+    tm:m=[[-0.368597, 0, 0.92959] [0, 1, 0] [-0.92959, 0, -0.368597] [-514.709, 391.422, -1195.49]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_87"
+    tm:m=[[-0.793683, 0, 0.608331] [0, 1, 0] [-0.608331, 0, -0.793683] [-714.325, 388.866, -1057.1]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_88"
+    tm:m=[[-0.493956, 0, 0.869487] [0, 1, 0] [-0.869487, 0, -0.493956] [-724.397, 388.304, -1048.03]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_86"
+    tm:m=[[0.271269, 0, -0.962504] [0, 1, 0] [0.962504, 0, 0.271269] [-733.705, 387.654, -1027.33]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_89"
+    tm:m=[[-0.670005, 0, 0.742357] [0, 1, 0] [-0.742357, 0, -0.670005] [-734.706, 388.866, -1022.78]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_90"
+    tm:m=[[-0.891431, 0, 0.453158] [0, 1, 0] [-0.453158, 0, -0.891431] [-744.76, 388.866, -1013.87]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_93"
+    tm:m=[[0.685498, 0, -0.728075] [0, 1, 0] [0.728075, 0, 0.685498] [-774.657, 387.654, -994.061]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_92"
+    tm:m=[[-0.835593, 0, 0.54935] [0, 1, 0] [-0.54935, 0, -0.835593] [-756.786, 388.304, -1007.77]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_94"
+    tm:m=[[0.553695, 0, -0.83272] [0, 1, 0] [0.83272, 0, 0.553695] [-782.331, 387.654, -983.054]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_98"
+    tm:m=[[0.946012, 0, -0.324131] [0, 1, 0] [0.324131, 0, 0.946012] [-851.607, 388.304, -876.471]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_99"
+    tm:m=[[-0.845115, 0, 0.534585] [0, 1, 0] [-0.534585, 0, -0.845115] [-830.887, 387.654, -885.301]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_97"
+    tm:m=[[-0.743499, 0, 0.668737] [0, 1, 0] [-0.668737, 0, -0.743499] [-820.715, 387.654, -894.052]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_100"
+    tm:m=[[-0.942162, 0, 0.335158] [0, 1, 0] [-0.335158, 0, -0.942162] [-1077.28, 388.304, -753.794]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_96"
+    tm:m=[[0.838814, 0, -0.544419] [0, 1, 0] [0.544419, 0, 0.838814] [-1097.89, 387.654, -744.723]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_101"
+    tm:m=[[-0.130077, 0, 0.991504] [0, 1, 0] [-0.991504, 0, -0.130077] [-1244.44, 388.866, -534.515]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_95"
+    tm:m=[[0.2665, 0, 0.963835] [0, 1, 0] [-0.963835, 0, 0.2665] [-1245.14, 388.304, -520.979]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_102"
+    tm:m=[[0.407879, 0, 0.913036] [0, 1, 0] [-0.913036, 0, 0.407879] [-1240.89, 388.304, -507.846]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_105"
+    tm:m=[[0.372452, 0, 0.928051] [0, 1, 0] [-0.928051, 0, 0.372452] [-1225.53, 388.304, -519.377]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_104"
+    tm:m=[[-0.130077, 0, 0.991504] [0, 1, 0] [-0.991504, 0, -0.130077] [-1224.84, 388.866, -532.913]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_107"
+    tm:m=[[-0.245779, 0, 0.969326] [0, 1, 0] [-0.969326, 0, -0.245779] [-1236.73, 387.654, -561.838]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_106"
+    tm:m=[[-0.0797459, 0, 0.996816] [0, 1, 0] [-0.996816, 0, -0.0797459] [-1235.36, 387.654, -575.187]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_110"
+    tm:m=[[-0.245779, 0, 0.969326] [0, 1, 0] [-0.969326, 0, -0.245779] [-1218.63, 387.654, -560.204]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_109"
+    tm:m=[[-0.0797459, 0, 0.996816] [0, 1, 0] [-0.996816, 0, -0.0797459] [-1217.26, 387.654, -573.553]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_113"
+    tm:m=[[0.0204653, 0, 0.999791] [0, 1, 0] [-0.999791, 0, 0.0204653] [-1152.62, 387.654, -303.252]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_112"
+    tm:m=[[0.295921, 0, 0.955213] [0, 1, 0] [-0.955213, 0, 0.295921] [-1156.26, 387.654, -316.402]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_116"
+    tm:m=[[-0.599209, 0, 0.800593] [0, 1, 0] [-0.800593, 0, -0.599209] [-1145.78, 387.654, -222.676]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_115"
+    tm:m=[[0.58148, 0, 0.813561] [0, 1, 0] [-0.813561, 0, 0.58148] [-1150.92, 387.654, -235.749]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_114"
+    tm:m=[[-0.00550997, 0, 0.999984] [0, 1, 0] [-0.999984, 0, -0.00550997] [-1136.02, 388.866, -257.854]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_111"
+    tm:m=[[0.542729, 0, 0.839908] [0, 1, 0] [-0.839908, 0, 0.542729] [-1134.71, 388.304, -244.626]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_119"
+    tm:m=[[0.141431, 0, -0.989949] [0, 1, 0] [0.989949, 0, 0.141431] [-1157.84, 387.654, -170.516]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_118"
+    tm:m=[[0.592173, 0, -0.805811] [0, 1, 0] [0.805811, 0, 0.592173] [-1154.52, 387.654, -183.706]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_82"
+    tm:m=[[0.997239, 0, 0.0742497] [0, 1, 0] [-0.0742497, 0, 0.997239] [-1153.32, 383.298, -144.479]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_71"
+    tm:m=[[0.11391, 0, 0.993491] [0, 1, 0] [-0.993491, 0, 0.11391] [-1157.94, 383.14, -156.402]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_122"
+    tm:m=[[-0.999999, 0, 0.00152978] [0, 1, 0] [-0.00152978, 0, -0.999999] [-1130.3, 387.654, -125.576]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_121"
+    tm:m=[[-0.88074, 0, 0.473602] [0, 1, 0] [-0.473602, 0, -0.88074] [-1117.72, 387.654, -130.73]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_123"
+    tm:m=[[-0.660754, 0, 0.750603] [0, 1, 0] [-0.750603, 0, -0.660754] [-1107.88, 387.654, -140.535]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_124"
+    tm:m=[[-0.846099, 0, 0.533027] [0, 1, 0] [-0.533027, 0, -0.846099] [-1097.09, 387.654, -148.803]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_125"
+    tm:m=[[-0.99823, 0, 0.0594725] [0, 1, 0] [-0.0594725, 0, -0.99823] [-1035.4, 388.866, -183.712]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_120"
+    tm:m=[[-0.802871, 0, 0.596153] [0, 1, 0] [-0.596153, 0, -0.802871] [-1048.52, 388.304, -181.549]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_128"
+    tm:m=[[-0.832956, 0, 0.553339] [0, 1, 0] [-0.553339, 0, -0.832956] [-945.424, 387.654, -206.101]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_127"
+    tm:m=[[-0.999999, 0, 0.00152978] [0, 1, 0] [-0.00152978, 0, -0.999999] [-957.892, 387.654, -199.596]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_130"
+    tm:m=[[-0.99114, 0, 0.132826] [0, 1, 0] [-0.132826, 0, -0.99114] [-827.373, 387.654, -187.493]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_129"
+    tm:m=[[-0.98809, 0, -0.153883] [0, 1, 0] [0.153883, 0, -0.98809] [-841.069, 387.654, -186.268]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_132"
+    tm:m=[[-0.938055, 0, 0.346487] [0, 1, 0] [-0.346487, 0, -0.938055] [-785.087, 388.304, -185.48]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_131"
+    tm:m=[[-0.99661, 0, -0.0822673] [0, 1, 0] [0.0822673, 0, -0.99661] [-770.581, 388.866, -185.49]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_134"
+    tm:m=[[-0.311337, 0, -0.9503] [0, 1, 0] [0.9503, 0, -0.311337] [-526.397, 388.304, -125.692]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_133"
+    tm:m=[[0.111872, 0, -0.993722] [0, 1, 0] [0.993722, 0, 0.111872] [-525.946, 388.866, -111.352]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_135"
+    tm:m=[[-0.727962, 0, -0.685618] [0, 1, 0] [0.685618, 0, -0.727962] [-531.863, 388.304, -138.436]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_136"
+    tm:m=[[0.253806, 0, -0.967255] [0, 1, 0] [0.967255, 0, 0.253806] [-528.559, 388.866, -97.7139]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_138"
+    tm:m=[[-0.802871, 0, 0.596153] [0, 1, 0] [-0.596153, 0, -0.802871] [-712.544, 388.304, -173.954]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_137"
+    tm:m=[[-0.99823, 0, 0.0594725] [0, 1, 0] [-0.0594725, 0, -0.99823] [-699.429, 388.866, -176.117]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_141"
+    tm:m=[[-0.727962, 0, -0.685618] [0, 1, 0] [0.685618, 0, -0.727962] [-547.997, 388.304, -126.995]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_140"
+    tm:m=[[-0.198127, 0, -0.980176] [0, 1, 0] [0.980176, 0, -0.198127] [-543.907, 388.304, -114.362]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_142"
+    tm:m=[[0.220179, 0, -0.97546] [0, 1, 0] [0.97546, 0, 0.220179] [-546.585, 388.304, -101.46]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_145"
+    tm:m=[[0.279594, 0, -0.960118] [0, 1, 0] [0.960118, 0, 0.279594] [-545.27, 388.304, -23.6972]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_144"
+    tm:m=[[-0.326432, 0, -0.945221] [0, 1, 0] [0.945221, 0, -0.326432] [-543.026, 388.304, -36.7854]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_146"
+    tm:m=[[0.579027, 0, 0.815308] [0, 1, 0] [-0.815308, 0, 0.579027] [-647.368, 388.866, 152.649]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_143"
+    tm:m=[[0.934237, 0, -0.356653] [0, 1, 0] [0.356653, 0, 0.934237] [-637.573, 388.304, 161.897]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_103"
+    tm:m=[[-0.645043, 0, 0.764146] [0, 1, 0] [-0.764146, 0, -0.645043] [-729.575, 387.18, -88.417]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_91"
+    tm:m=[[0.689506, 0, 0.72428] [0, 1, 0] [-0.72428, 0, 0.689506] [-712.058, 387.05, -82.6218]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_108"
+    tm:m=[[-0.580691, 0, 0.814125] [0, 1, 0] [-0.814125, 0, -0.580691] [-722.059, 387.18, -98.7887]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_117"
+    tm:m=[[-0.473202, 0, 0.880954] [0, 1, 0] [-0.880954, 0, -0.473202] [-715.932, 387.18, -110.6]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_148"
+    tm:m=[[0.590531, 0, -0.807015] [0, 1, 0] [0.807015, 0, 0.590531] [-600.863, 388.866, -249.819]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_147"
+    tm:m=[[0.0524996, 0, -0.998621] [0, 1, 0] [0.998621, 0, 0.0524996] [-594.168, 388.304, -261.303]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_151"
+    tm:m=[[-0.0134185, 0, 0.99991] [0, 1, 0] [-0.99991, 0, -0.0134185] [-574.535, 388.304, -275.693]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_150"
+    tm:m=[[-0.803659, 0, 0.595089] [0, 1, 0] [-0.595089, 0, -0.803659] [-565.087, 388.866, -284.43]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_152"
+    tm:m=[[0.807139, 0, -0.590363] [0, 1, 0] [0.590363, 0, 0.807139] [-586.997, 387.654, -292.142]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_149"
+    tm:m=[[0.347075, 0, -0.937838] [0, 1, 0] [0.937838, 0, 0.347075] [-593.239, 387.654, -279.54]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_153"
+    tm:m=[[0.616732, 0, -0.787173] [0, 1, 0] [0.787173, 0, 0.616732] [-576.868, 388.866, -299.961]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_154"
+    tm:m=[[0.616732, 0, -0.787173] [0, 1, 0] [0.787173, 0, 0.616732] [-562.72, 388.866, -288.424]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_157"
+    tm:m=[[0.149015, 0, -0.988835] [0, 1, 0] [0.988835, 0, 0.149015] [-577.285, 388.304, -252.499]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_156"
+    tm:m=[[0.581589, 0, -0.813482] [0, 1, 0] [0.813482, 0, 0.581589] [-584.105, 388.866, -241.329]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_159"
+    tm:m=[[0.732091, 0, -0.681206] [0, 1, 0] [0.681206, 0, 0.732091] [-518.808, 388.866, -357.957]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_158"
+    tm:m=[[0.239834, 0, -0.970814] [0, 1, 0] [0.970814, 0, 0.239834] [-510.068, 388.304, -367.973]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_161"
+    tm:m=[[0.461547, 0, -0.887116] [0, 1, 0] [0.887116, 0, 0.461547] [-486.633, 387.654, -384.238]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_160"
+    tm:m=[[0.809118, 0, -0.587646] [0, 1, 0] [0.587646, 0, 0.809118] [-479.325, 387.654, -395.617]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_163"
+    tm:m=[[-0.0417898, 0, -0.999126] [0, 1, 0] [0.999126, 0, -0.0417898] [-411.708, 388.304, -439.718]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_162"
+    tm:m=[[0.636432, 0, -0.771333] [0, 1, 0] [0.771333, 0, 0.636432] [-418.799, 388.866, -428.19]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_164"
+    tm:m=[[0.904193, 0, -0.427123] [0, 1, 0] [0.427123, 0, 0.904193] [-430.831, 388.866, -421.79]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_165"
+    tm:m=[[0.998303, 0, 0.0582215] [0, 1, 0] [-0.0582215, 0, 0.998303] [-407.906, 388.866, -452.88]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_166"
+    tm:m=[[0.904193, 0, -0.427123] [0, 1, 0] [0.427123, 0, 0.904193] [-439.149, 388.866, -438.955]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_167"
+    tm:m=[[0.999896, 0, 0.0144094] [0, 1, 0] [-0.0144094, 0, 0.999896] [-410.661, 388.866, -470.583]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+
+  objectGroups{
+    name:t="armada_168"
+    tm:m=[[0.990575, 0, 0.136971] [0, 1, 0] [-0.136971, 0, 0.990575] [-397.693, 388.866, -470.198]]
+    unit_class:t="det_road_block_with_bags_c"
+    objLayer:i=1
+
+    props{
+      army:i=2
+      active:b=yes
+    }
+  }
+}
+
+areas{
+  spawn04{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1049.55, 388.704, 113.05]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn06{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1059.33, 388.704, 110.976]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn03{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1061.41, 388.704, 120.759]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn01{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1051.62, 388.704, 122.833]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn05{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1054.44, 388.704, 112.013]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn02{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1056.51, 388.704, 121.796]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn07{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1047.48, 388.704, 103.278]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn08{
+    type:t="Point"
+    tm:m=[[0.203779, 0, 0.979014] [0, 1, 0] [-0.979014, 0, 0.203779] [1052.37, 388.704, 102.241]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn09{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1057.29, 388.704, 101.198]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn10{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1045.39, 388.704, 93.446]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn11{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1050.29, 388.704, 92.4092]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn12{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1055.19, 388.704, 91.4114]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn13{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1043.33, 388.704, 83.7219]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn14{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1048.22, 388.704, 82.6851]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn15{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1053.12, 388.704, 81.6482]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn16{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1041.25, 388.704, 73.881]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn17{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1046.14, 388.704, 72.8443]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn18{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1051.03, 388.663, 71.8074]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn19{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1039.18, 388.704, 64.1175]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn20{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1044.07, 388.704, 63.0807]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn21{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1048.96, 388.704, 62.0438]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn22{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1037.11, 388.704, 54.374]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn23{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1042, 388.704, 53.3372]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn24{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1046.9, 388.704, 52.3003]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn25{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1035.03, 388.728, 44.5425]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn26{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1039.92, 388.704, 43.4962]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn27{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1044.81, 388.688, 42.4784]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn28{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1032.97, 388.657, 34.8192]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn29{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1037.84, 388.741, 33.6935]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn30{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1042.76, 388.724, 32.6705]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn31{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1030.88, 388.704, 24.9974]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn32{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1035.77, 388.699, 23.9109]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn33{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1040.67, 388.66, 22.9132]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn34{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1028.81, 388.749, 15.1849]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn35{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1033.69, 388.723, 14.1089]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn36{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1038.52, 388.704, 12.6646]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn37{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1026.75, 388.704, 5.48056]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn38{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1031.63, 388.704, 4.42372]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn39{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1036.54, 388.704, 3.45563]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn40{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1024.66, 388.704, -4.37093]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn41{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1029.55, 388.704, -5.40772]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn42{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1034.44, 388.765, -6.44462]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn43{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1022.58, 388.704, -14.1631]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn44{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1027.46, 388.704, -15.2782]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn45{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1032.36, 388.703, -16.2664]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn46{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1020.53, 388.69, -23.8579]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn47{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1025.42, 388.661, -24.8947]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn48{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1030.31, 388.704, -25.9507]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn49{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1018.45, 388.723, -33.6597]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn50{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1023.34, 388.793, -34.7166]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn51{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1028.22, 388.704, -35.7926]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn52{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1016.36, 388.704, -43.5111]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn53{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1021.25, 388.704, -44.5575]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn54{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1026.13, 388.704, -45.6631]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn55{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1014.3, 388.704, -53.225]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn56{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1019.18, 388.704, -54.3402]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn57{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1024.07, 388.704, -55.3771]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn58{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1012.22, 388.704, -63.0764]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn59{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1017.09, 388.671, -64.1725]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn60{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1021.99, 388.704, -65.1893]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn61{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1010.12, 388.704, -72.9666]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn62{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1015.01, 388.704, -74.0033]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn63{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1019.9, 388.704, -75.0402]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn64{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1008.08, 388.704, -82.5831]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  spawn65{
+    type:t="Point"
+    tm:m=[[0.207365, 0, 0.97826] [0, 1, 0] [-0.97826, 0, 0.207365] [1012.97, 388.704, -83.6199]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  pitstop{
+    type:t="Sphere"
+    tm:m=[[-19.8025, 0, 2.80384] [0, 20, 0] [-2.80384, 0, -19.8025] [5972.73, -2.24338, -6283.96]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  area_01{
+    type:t="Sphere"
+    tm:m=[[-19.8025, 0, 2.80384] [0, 20, 0] [-2.80384, 0, -19.8025] [6001.83, -2.48944, -6316]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  pitstop02{
+    type:t="Sphere"
+    tm:m=[[19.6759, 0, -3.58613] [0, 20, 0] [3.58613, 0, 19.6759] [6007.19, -0.124035, -6350.67]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  area_02{
+    type:t="Sphere"
+    tm:m=[[19.6759, 0, -3.58613] [0, 20, 0] [3.58613, 0, 19.6759] [5944.72, -5.32062, -6291.7]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_001{
+    type:t="Sphere"
+    tm:m=[[9.60891, 0, 38.8288] [0, 40, 0] [-38.8288, 0, 9.60891] [1063.79, 386.943, 144.041]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_002{
+    type:t="Sphere"
+    tm:m=[[19.6026, 0, 3.96722] [0, 20, 0] [-3.96722, 0, 19.6026] [1113.21, 387.046, 237.615]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_003{
+    type:t="Sphere"
+    tm:m=[[18.7616, 0, -6.92833] [0, 20, 0] [6.92832, 0, 18.7616] [1133.02, 387.046, 309.361]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_004{
+    type:t="Sphere"
+    tm:m=[[6.04288, 0, -19.0653] [0, 20, 0] [19.0653, 0, 6.04287] [1105.09, 387.046, 297.434]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_005{
+    type:t="Sphere"
+    tm:m=[[11.9617, 0, -16.0287] [0, 20, 0] [16.0286, 0, 11.9617] [823.41, 387.462, 336.792]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_006{
+    type:t="Sphere"
+    tm:m=[[10.5055, 0, -17.0187] [0, 20, 0] [17.0187, 0, 10.5054] [783.681, 388.743, 261.102]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_007{
+    type:t="Sphere"
+    tm:m=[[17.5141, 0, 9.65691] [0, 20, 0] [-9.65695, 0, 17.5141] [717.154, 391.648, 233.234]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_008{
+    type:t="Sphere"
+    tm:m=[[3.60306, 0, 19.6728] [0, 20, 0] [-19.6728, 0, 3.60307] [614.248, 392.318, 263.131]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_009{
+    type:t="Sphere"
+    tm:m=[[19.3703, 0, -4.97918] [0, 20, 0] [4.97918, 0, 19.3703] [468.611, 389.664, 141.02]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_010{
+    type:t="Sphere"
+    tm:m=[[3.9293, 0, -19.6101] [0, 20, 0] [19.6101, 0, 3.9293] [494.42, 391.055, 102.268]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_011{
+    type:t="Sphere"
+    tm:m=[[-17.6369, 0, -9.43088] [0, 20, 0] [9.43087, 0, -17.6369] [604.821, 389.18, 41.1106]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_012{
+    type:t="Sphere"
+    tm:m=[[-12.86, 0, -13.1855] [0, 20, 0] [13.1854, 0, -12.86] [651.148, 389.729, -17.0255]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_013{
+    type:t="Sphere"
+    tm:m=[[-18.7554, 0, -7.80933] [0, 20, 0] [7.80935, 0, -18.7555] [698.609, 389.239, -104.502]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_014{
+    type:t="Sphere"
+    tm:m=[[-19.5128, 0, -4.3875] [0, 20, 0] [4.3875, 0, -19.5128] [760.299, 388.793, -166.924]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_015{
+    type:t="Sphere"
+    tm:m=[[-18.4529, 0, 7.71302] [0, 20, 0] [-7.71304, 0, -18.4529] [864.26, 387.326, -188.076]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_016{
+    type:t="Sphere"
+    tm:m=[[-19.4567, 0, 4.63028] [0, 20, 0] [-4.63027, 0, -19.4567] [978.693, 386.597, -211.256]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_017{
+    type:t="Sphere"
+    tm:m=[[-19.5235, 0, 4.33984] [0, 20, 0] [-4.33988, 0, -19.5235] [997.298, 386.317, -236.471]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_018{
+    type:t="Sphere"
+    tm:m=[[-16.132, 0, -11.8216] [0, 20, 0] [11.8217, 0, -16.1321] [908.88, 386.489, -385.689]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_019{
+    type:t="Sphere"
+    tm:m=[[-5.65476, 0, 19.1836] [0, 20, 0] [-19.1839, 0, -5.65482] [818.002, 387.575, -427.627]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_020{
+    type:t="Sphere"
+    tm:m=[[-14.2992, 0, 13.9829] [0, 20, 0] [-13.9831, 0, -14.2994] [855.412, 387.606, -429.58]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_021{
+    type:t="Sphere"
+    tm:m=[[6.14473, 0, -19.0324] [0, 20, 0] [19.0327, 0, 6.14481] [964.46, 385.572, -471.164]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_022{
+    type:t="Sphere"
+    tm:m=[[2.85771, 0, -19.7945] [0, 20, 0] [19.7949, 0, 2.85774] [1039.8, 386.08, -539.131]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_023{
+    type:t="Sphere"
+    tm:m=[[-5.67311, 0, -19.1782] [0, 20, 0] [19.1785, 0, -5.67321] [1101.24, 385.292, -567.654]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_024{
+    type:t="Sphere"
+    tm:m=[[-5.6732, 0, -19.1785] [0, 20, 0] [19.1785, 0, -5.6732] [1106.26, 385.663, -596.002]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_025{
+    type:t="Sphere"
+    tm:m=[[-0.0954943, 0, -19.9997] [0, 20, 0] [19.9997, 0, -0.0955048] [1049.59, 390.547, -742.057]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_026{
+    type:t="Sphere"
+    tm:m=[[3.19448, 0, -19.7432] [0, 20, 0] [19.7433, 0, 3.19457] [1010.43, 390.287, -851.191]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_027{
+    type:t="Sphere"
+    tm:m=[[-17.0949, 0, -10.381] [0, 20, 0] [10.381, 0, -17.0949] [1015.92, 392.08, -938.495]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_028{
+    type:t="Sphere"
+    tm:m=[[3.94845, 0, 19.6064] [0, 20, 0] [-19.6064, 0, 3.94845] [987.997, 392.805, -950.357]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_029{
+    type:t="Sphere"
+    tm:m=[[1.76922, 0, 19.9216] [0, 20, 0] [-19.9216, 0, 1.76921] [887.818, 392.14, -961.594]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_030{
+    type:t="Sphere"
+    tm:m=[[-2.34584, 0, 19.862] [0, 20, 0] [-19.862, 0, -2.34583] [759.467, 394.952, -1018.39]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_031{
+    type:t="Sphere"
+    tm:m=[[-15.6341, 0, 12.4731] [0, 20, 0] [-12.4731, 0, -15.634] [607.017, 395.215, -1074.67]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_032{
+    type:t="Sphere"
+    tm:m=[[-17.4882, 0, 9.70364] [0, 20, 0] [-9.70363, 0, -17.4883] [540.642, 396.82, -1098]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_033{
+    type:t="Sphere"
+    tm:m=[[-18.0468, 0, 8.62047] [0, 20, 0] [-8.62047, 0, -18.0469] [419.218, 398.094, -1179.93]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_034{
+    type:t="Sphere"
+    tm:m=[[-5.64286, 0, 19.1875] [0, 20, 0] [-19.1875, 0, -5.64285] [348.215, 400.72, -1178.27]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_035{
+    type:t="Sphere"
+    tm:m=[[-3.8952, 0, 19.617] [0, 20, 0] [-19.617, 0, -3.8952] [287.172, 404.482, -1218.29]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_036{
+    type:t="Sphere"
+    tm:m=[[-3.8952, 0, 19.617] [0, 20, 0] [-19.617, 0, -3.8952] [85.9767, 405.625, -1225.28]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_037{
+    type:t="Sphere"
+    tm:m=[[-4.14626, 0, 20.8814] [0, 20, 0] [-20.8813, 0, -4.14625] [33.2891, 405.556, -1249.3]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_038{
+    type:t="Sphere"
+    tm:m=[[-11.7262, 0, 20.3455] [0, 20, 0] [-20.3456, 0, -11.7262] [-101.1, 405.582, -1305.49]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_039{
+    type:t="Sphere"
+    tm:m=[[-20.7709, 0, -10.955] [0, 20, 0] [10.955, 0, -20.771] [-149.671, 405.554, -1422.51]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_040{
+    type:t="Sphere"
+    tm:m=[[-17.0687, 0, -19.3176] [0, 20, 0] [19.3177, 0, -17.0688] [-195.285, 404.953, -1469.82]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_041{
+    type:t="Sphere"
+    tm:m=[[-4.25267, 0, -19.5426] [0, 20, 0] [19.5426, 0, -4.25265] [-213.6, 404.543, -1408.11]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_042{
+    type:t="Sphere"
+    tm:m=[[-0.72208, 0, -19.987] [0, 20, 0] [19.987, 0, -0.722078] [-178.078, 407.35, -1380.34]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_043{
+    type:t="Sphere"
+    tm:m=[[-19.9662, 0, 1.16304] [0, 20, 0] [-1.16304, 0, -19.9662] [-126.969, 403.348, -1381.48]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_044{
+    type:t="Sphere"
+    tm:m=[[0.0595993, 0, -19.9999] [0, 20, 0] [19.9999, 0, 0.0596011] [-19.4696, 386.228, -1417.35]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_045{
+    type:t="Sphere"
+    tm:m=[[0.0595993, 0, -19.9999] [0, 20, 0] [19.9999, 0, 0.0596011] [52.2674, 386.242, -1479.12]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_046{
+    type:t="Sphere"
+    tm:m=[[-19.9399, 0, -1.54874] [0, 20, 0] [1.54874, 0, -19.9399] [78.8986, 386.234, -1410.2]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_047{
+    type:t="Sphere"
+    tm:m=[[-8.31569, 0, -18.1893] [0, 20, 0] [18.1893, 0, -8.31571] [-5.12588, 386.25, -1391.26]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_048{
+    type:t="Sphere"
+    tm:m=[[3.21571, 0, -19.7398] [0, 20, 0] [19.7398, 0, 3.21572] [18.3769, 386.245, -1481.68]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_049{
+    type:t="Sphere"
+    tm:m=[[-4.09822, 0, -19.5756] [0, 20, 0] [19.5756, 0, -4.09821] [73.2056, 386.257, -1398.73]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_050{
+    type:t="Sphere"
+    tm:m=[[-1.98211, 0, -19.9015] [0, 20, 0] [19.9015, 0, -1.98211] [34.6745, 386.599, -1363.31]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_051{
+    type:t="Sphere"
+    tm:m=[[1.67097, 0, -19.9301] [0, 20, 0] [19.9301, 0, 1.67097] [40.5603, 403.737, -1266.26]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_052{
+    type:t="Sphere"
+    tm:m=[[2.48628, 0, -19.8449] [0, 20, 0] [19.8449, 0, 2.48629] [35.6775, 405.497, -1233.56]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_053{
+    type:t="Sphere"
+    tm:m=[[10.0574, 0, -17.2872] [0, 20, 0] [17.2872, 0, 10.0574] [15.7531, 405.593, -1224.21]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_054{
+    type:t="Sphere"
+    tm:m=[[11.9996, 0, -16.0003] [0, 20, 0] [16.0003, 0, 11.9996] [-231.179, 404.735, -1237.08]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_055{
+    type:t="Sphere"
+    tm:m=[[19.814, 0, -2.72162] [0, 20, 0] [2.72162, 0, 19.814] [-419.32, 399.257, -1273.22]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_056{
+    type:t="Sphere"
+    tm:m=[[-7.83435, 0, 18.4017] [0, 20, 0] [-18.4017, 0, -7.83435] [-477.233, 393.59, -1243.63]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_057{
+    type:t="Sphere"
+    tm:m=[[-8.10615, 0, 18.2836] [0, 20, 0] [-18.2836, 0, -8.10615] [-526.757, 390.779, -1195.22]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_058{
+    type:t="Sphere"
+    tm:m=[[-18.2694, 0, -8.13812] [0, 20, 0] [8.13812, 0, -18.2694] [-541.568, 390.422, -1145.4]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_059{
+    type:t="Sphere"
+    tm:m=[[-18.6158, 0, -7.31111] [0, 20, 0] [7.31111, 0, -18.6158] [-701.657, 390.451, -1053.14]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_060{
+    type:t="Sphere"
+    tm:m=[[-8.01577, 0, 18.3234] [0, 20, 0] [-18.3234, 0, -8.01577] [-730.867, 389.245, -1012.11]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_061{
+    type:t="Sphere"
+    tm:m=[[-3.87999, 0, 19.62] [0, 20, 0] [-19.62, 0, -3.88] [-762.283, 388.106, -993.535]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_062{
+    type:t="Sphere"
+    tm:m=[[1.2045, 0, 19.9636] [0, 20, 0] [-19.9636, 0, 1.2045] [-792.732, 387.23, -944.794]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_063{
+    type:t="Sphere"
+    tm:m=[[19.6229, 0, 3.866] [0, 20, 0] [-3.866, 0, 19.6229] [-838.411, 386.176, -890.782]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_064{
+    type:t="Sphere"
+    tm:m=[[15.6009, 0, -12.5145] [0, 20, 0] [12.5145, 0, 15.6009] [-885.328, 385.68, -872.324]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_065{
+    type:t="Sphere"
+    tm:m=[[18.9896, 0, -6.27628] [0, 20, 0] [6.27628, 0, 18.9896] [-1015.68, 384.614, -777.951]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_066{
+    type:t="Sphere"
+    tm:m=[[18.9724, 0, -6.32831] [0, 20, 0] [6.32832, 0, 18.9724] [-1093.07, 384.162, -757.916]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_067{
+    type:t="Sphere"
+    tm:m=[[-19.9165, 0, 1.82591] [0, 20, 0] [-1.82591, 0, -19.9165] [-1172.88, 383.759, -697.361]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_068{
+    type:t="Sphere"
+    tm:m=[[-19.3526, 0, 5.04728] [0, 20, 0] [-5.04728, 0, -19.3526] [-1211.38, 383.53, -625.241]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_069{
+    type:t="Sphere"
+    tm:m=[[19.5761, 0, -4.0955] [0, 20, 0] [4.0955, 0, 19.5761] [-1227.4, 383.247, -563.935]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_070{
+    type:t="Sphere"
+    tm:m=[[-10.0311, 0, -17.3025] [0, 20, 0] [17.3025, 0, -10.0311] [-1234.78, 383.105, -521.664]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_071{
+    type:t="Sphere"
+    tm:m=[[-12.9187, 0, 15.2679] [0, 20, 0] [-15.2679, 0, -12.9187] [-1218.27, 383.057, -484.922]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_072{
+    type:t="Sphere"
+    tm:m=[[-19.9999, 0, 0.0717227] [0, 20, 0] [-0.0717227, 0, -19.9999] [-1185.44, 383.685, -405.352]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_073{
+    type:t="Sphere"
+    tm:m=[[-19.9737, 0, 1.02338] [0, 20, 0] [-1.02338, 0, -19.9737] [-1144.85, 383.599, -307.857]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_074{
+    type:t="Sphere"
+    tm:m=[[-19.6573, 0, -3.68661] [0, 20, 0] [3.68661, 0, -19.6573] [-1145.62, 383.504, -256.051]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_075{
+    type:t="Sphere"
+    tm:m=[[-17.1005, 0, -10.3718] [0, 20, 0] [10.3718, 0, -17.1005] [-1135.69, 383.284, -222.665]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_076{
+    type:t="Sphere"
+    tm:m=[[-18.8475, 0, -6.69115] [0, 20, 0] [6.69115, 0, -18.8475] [-1162.75, 382.917, -186.037]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_077{
+    type:t="Sphere"
+    tm:m=[[-19.9999, 0, -0.0540454] [0, 20, 0] [0.0540304, 0, -20] [-1166.67, 382.924, -137.837]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_078{
+    type:t="Sphere"
+    tm:m=[[6.60158, 0, -18.879] [0, 20, 0] [18.8791, 0, 6.60157] [-1128.54, 383.439, -136.2]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_079{
+    type:t="Sphere"
+    tm:m=[[2.3938, 0, -19.8562] [0, 20, 0] [19.8562, 0, 2.39381] [-1106.68, 383.686, -157.665]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_080{
+    type:t="Sphere"
+    tm:m=[[19.9713, 0, -1.0709] [0, 20, 0] [1.0709, 0, 19.9713] [-1078.32, 383.688, -168.844]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_081{
+    type:t="Sphere"
+    tm:m=[[19.978, 0, -0.938612] [0, 20, 0] [0.938612, 0, 19.9779] [-1049.11, 384.535, -191.843]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_082{
+    type:t="Sphere"
+    tm:m=[[19.9486, 0, 1.43344] [0, 20, 0] [-1.43344, 0, 19.9486] [-1006.26, 386.164, -186.524]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_083{
+    type:t="Sphere"
+    tm:m=[[17.365, 0, -9.92256] [0, 20, 0] [9.92256, 0, 17.365] [-955.541, 386.41, -191.033]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_084{
+    type:t="Sphere"
+    tm:m=[[17.756, 0, -9.20452] [0, 20, 0] [9.20452, 0, 17.756] [-929.525, 385.12, -204.096]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_085{
+    type:t="Sphere"
+    tm:m=[[18.1734, 0, 8.35032] [0, 20, 0] [-8.35032, 0, 18.1734] [-838.925, 385.721, -178.53]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_086{
+    type:t="Sphere"
+    tm:m=[[-16.9797, 0, 10.5684] [0, 20, 0] [-10.5684, 0, -16.9797] [-778.063, 386.168, -195.82]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_087{
+    type:t="Sphere"
+    tm:m=[[-9.54426, 0, 17.5758] [0, 20, 0] [-17.5758, 0, -9.54426] [-733.672, 385.727, -185.021]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_088{
+    type:t="Sphere"
+    tm:m=[[-9.54426, 0, 17.5758] [0, 20, 0] [-17.5758, 0, -9.54426] [-628.581, 387.263, -192.932]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_089{
+    type:t="Sphere"
+    tm:m=[[8.9507, 0, 17.8853] [0, 20, 0] [-17.8853, 0, 8.9507] [-575.356, 388.33, -152.467]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_090{
+    type:t="Sphere"
+    tm:m=[[19.7093, 0, -3.39737] [0, 20, 0] [3.39737, 0, 19.7093] [-534.032, 386.355, -124.961]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_091{
+    type:t="Sphere"
+    tm:m=[[15.8841, 0, 12.1531] [0, 20, 0] [-12.1531, 0, 15.8841] [-533.21, 385.268, -34.2914]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_092{
+    type:t="Sphere"
+    tm:m=[[15.8842, 0, 12.1532] [0, 20, 0] [-12.1531, 0, 15.8841] [-555.928, 384.292, 114.522]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_093{
+    type:t="Sphere"
+    tm:m=[[6.4924, 0, 18.9171] [0, 20, 0] [-18.917, 0, 6.49235] [-622.214, 385.959, 168.272]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_094{
+    type:t="Sphere"
+    tm:m=[[-11.8428, 0, 16.1168] [0, 20, 0] [-16.1167, 0, -11.8427] [-656.25, 386.101, 157.789]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_095{
+    type:t="Sphere"
+    tm:m=[[-17.9443, 0, 8.83216] [0, 20, 0] [-8.83211, 0, -17.9442] [-668.066, 386.101, 33.7176]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_096{
+    type:t="Sphere"
+    tm:m=[[-17.9443, 0, 8.83216] [0, 20, 0] [-8.83211, 0, -17.9442] [-718.166, 386.1, -92.8214]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_097{
+    type:t="Sphere"
+    tm:m=[[-17.9443, 0, 8.83216] [0, 20, 0] [-8.83211, 0, -17.9442] [-591.435, 387.813, -246.224]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_098{
+    type:t="Sphere"
+    tm:m=[[-12.1521, 0, 15.8849] [0, 20, 0] [-15.8848, 0, -12.1521] [-579.839, 388.117, -285.044]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_099{
+    type:t="Sphere"
+    tm:m=[[-7.04379, 0, 18.7187] [0, 20, 0] [-18.7186, 0, -7.04373] [-504.17, 388.505, -359.346]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_100{
+    type:t="Sphere"
+    tm:m=[[-2.06003, 0, 19.8938] [0, 20, 0] [-19.8937, 0, -2.06001] [-480.665, 389.877, -406.175]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_101{
+    type:t="Sphere"
+    tm:m=[[17.2554, 0, 10.1123] [0, 20, 0] [-10.1122, 0, 17.2553] [-420.757, 389.283, -438.627]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_102{
+    type:t="Sphere"
+    tm:m=[[18.5612, 0, 7.44858] [0, 20, 0] [-7.44858, 0, 18.5612] [-405.234, 390.374, -461.352]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_103{
+    type:t="Sphere"
+    tm:m=[[16.8793, 0, -10.728] [0, 20, 0] [10.728, 0, 16.8793] [-215.614, 385.742, -416.626]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_104{
+    type:t="Sphere"
+    tm:m=[[19.3471, 0, -5.06851] [0, 20, 0] [5.06851, 0, 19.3471] [-149.121, 385.71, -434.366]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_105{
+    type:t="Sphere"
+    tm:m=[[19.986, 0, 0.747339] [0, 20, 0] [-0.74734, 0, 19.986] [-64.8857, 384.547, -440.625]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_106{
+    type:t="Sphere"
+    tm:m=[[8.68807, 0, 18.0144] [0, 20, 0] [-18.0144, 0, 8.68807] [97.2005, 385.149, -408.75]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_107{
+    type:t="Sphere"
+    tm:m=[[-10.6787, 0, 16.9105] [0, 20, 0] [-16.9105, 0, -10.6787] [63.2404, 383.452, -182.087]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_108{
+    type:t="Sphere"
+    tm:m=[[7.16432, 0, 18.6728] [0, 20, 0] [-18.6728, 0, 7.16432] [58.4238, 382.144, -111.12]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_109{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [79.1161, 381.82, -6.52243]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_110{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [82.6281, 381.82, 23.6102]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_111{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [121.231, 381.82, 150.159]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_112{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [50.0919, 381.82, 252.857]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_113{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-16.9674, 381.82, 272.397]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_114{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-32.0771, 381.82, 256.718]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_115{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-46.004, 384.042, 175.759]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_116{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-72.7131, 384.042, 134.247]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_117{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-72.1773, 384.042, 99.6682]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_118{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-47.5724, 384.042, 75.2058]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_119{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-13.1274, 384.042, 71.6296]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_120{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-6.35544, 384.042, 49.2515]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_121{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-5.22863, 384.042, -9.65457]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_122{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-18.3649, 384.042, -26.9425]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_123{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-26.0334, 384.042, -7.68867]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_124{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-25.7229, 384.042, 46.6147]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_125{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-30.2546, 384.042, 69.5961]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_126{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-12.0967, 384.042, 76.1531]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_127{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [14.3999, 384.042, 99.0813]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_128{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [10.5151, 384.042, 145.855]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_129{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-25.4981, 384.042, 163.952]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_130{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-29.6664, 384.042, 194.911]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_131{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-11.6475, 384.042, 256.05]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_132{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-27.5349, 381.851, 271.973]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_133{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-105.234, 381.82, 250.373]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_134{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-170.051, 381.82, 160.12]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_135{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-147.368, 381.82, 34.5082]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_136{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-89.5289, 381.82, -9.76126]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_137{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-75.1024, 381.82, -37.6289]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_138{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-99.7233, 381.82, -101.262]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_139{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-142.191, 381.82, -175.916]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_140{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-120.582, 381.82, -186.132]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_141{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-86.3627, 381.82, -202.659]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_142{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-81.4863, 385.651, -424.653]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_143{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [-65.3735, 384.594, -441.337]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_144{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [121.659, 385.71, -423.507]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_145{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [242.486, 385.97, -377.432]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_146{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [282.403, 387.809, -389.771]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_147{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [354.08, 390.419, -395.571]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_148{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [424.289, 389.386, -505.768]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_149{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [463.326, 389.151, -537.635]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_150{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [547.414, 389.701, -561.301]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_151{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [675.237, 388.431, -531.658]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_152{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [760.241, 388.655, -448.863]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_153{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [894.751, 386.687, -395.428]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_154{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [962.951, 386.646, -313.036]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_155{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [1012.45, 385.71, -176.227]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_156{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [1018.56, 385.71, -92.0483]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  race_wp_157{
+    type:t="Sphere"
+    tm:m=[[19.7495, 0, 3.15535] [0, 20, 0] [-3.15535, 0, 19.7495] [1052.86, 385.71, 102.399]]
+    objLayer:i=0
+
+    props{}
+  }
+}
+
+objLayers{}
+wayPoints{}
