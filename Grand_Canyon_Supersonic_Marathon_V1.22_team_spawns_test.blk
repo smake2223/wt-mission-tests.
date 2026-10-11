@@ -92,7 +92,7 @@ mission_settings{
     weather:t="good"
     missionDebriefing:t=""
     missionBriefing:t=""
-    killLimit:i=10
+    killLimit:i=100
     chapter:t="ffa"
     locName:t="[Air Race] Grand Canyon Supersonic Marathon"
     locDesc:t="Air Race by MagicaThunder"
