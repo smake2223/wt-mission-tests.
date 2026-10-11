@@ -85,6 +85,7 @@ mission_settings{
 
   mission{
     name:t="gcc_air_race"
+    deathPenaltyMul:r=0
     level:t="levels/air_grand_canyon.bin"
     type:t="singleMission"
     environment:t="Day"
